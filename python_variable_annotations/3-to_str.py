@@ -8,7 +8,6 @@ def to_str(n: float) -> str:
     """
     return string representation of the float
     n -- float
-    float -- float
     Return: str
     """
     return str(n)
