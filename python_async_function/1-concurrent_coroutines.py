@@ -1,22 +1,14 @@
 #!/usr/bin/env python3
-"""
-Random and asyncio modules are imported
-"""
+"""Execute multiple coroutines at the same time with async"""
+from typing import List
 import asyncio
-import random
-from types import List
-
-
 wait_random = __import__('0-basic_async_syntax').wait_random
 
 
 async def wait_n(n: int, max_delay: int) -> List[float]:
-    """
-    n - - int 
-    max_delay -- int 
-    Return: the list of delay time with asceding order 
-    """
-    delays: List[float] = []
-    for i in range(n):
-        delays.append(await wait_random(max_delay))
-    return sorted(delays)
+    """Spawns wait_random n times with the specified max_delay
+        and returns the list of all the delays (float values)."""
+    futures = [wait_random(max_delay) for _ in range(n)]
+    futures = asyncio.as_completed(futures)
+    delays = [await future for future in futures]
+    return delays
