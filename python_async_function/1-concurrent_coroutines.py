@@ -4,6 +4,7 @@ Random and asyncio modules are imported
 """
 import asyncio
 import random
+from types import List
 
 
 wait_random = __import__('0-basic_async_syntax').wait_random
