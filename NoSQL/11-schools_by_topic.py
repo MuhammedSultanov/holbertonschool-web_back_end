@@ -9,5 +9,5 @@ from pymongo import MongoClient
 
 def schools_by_topic(mongo_collection, topic):
     """lists specific topic"""
-    result = mongo_collection.find({"topic": topic})
+    result = mongo_collection.find({"topics": topic})
     return result
