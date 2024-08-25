@@ -1,2 +1,2 @@
-// this code displays the number of documents in the school collection
+// this code displays the number of documents
 db.school.count()
